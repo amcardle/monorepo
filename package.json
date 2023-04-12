@@ -1,9 +1,15 @@
 {
-  "name": "monorepo",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "nuxt-app",
+  "private": true,
   "scripts": {
-    "build": "exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nbuild": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "build": "npm run nbuild && npm run generate && cp -r ./.output/public ./build"
+  },
+  "devDependencies": {
+    "nuxt": "^3.4.0"
   }
 }
