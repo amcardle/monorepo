@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "build": "npm run nbuild && npm run generate && cp -r ./.output/public ./build"
+    "build": "npm run nbuild && npm run generate && ls"
   },
   "devDependencies": {
     "nuxt": "^3.4.0"
