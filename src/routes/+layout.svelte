@@ -16,7 +16,6 @@
 
 <main>
   <slot />
-  does this work?
 </main>
 
 {#if ReloadPrompt}
