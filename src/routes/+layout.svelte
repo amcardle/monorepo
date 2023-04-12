@@ -12,6 +12,7 @@
 
 <svelte:head>
     {@html webManifest}
+    <meta name="theme-color" content="#ffffff"/>
 </svelte:head>
 
 <main>
