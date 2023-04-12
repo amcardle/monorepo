@@ -5,10 +5,10 @@ import { SvelteKitPWA } from '@vite-pwa/sveltekit'
 export default defineConfig({
 	plugins: [sveltekit(), SvelteKitPWA({
 		injectManifest: {
-			globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+			globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2,html}']
 		},
 		workbox: {
-			globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+			globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2,html}']
 		},
 		manifest: {
 			short_name: 'SvelteKit PWA',
