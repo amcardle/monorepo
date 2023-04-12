@@ -2,12 +2,11 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "nbuild": "nuxt build",
+    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "build": "npm run nbuild && npm run generate && ls"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "nuxt": "^3.4.0"
