@@ -3,8 +3,6 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
 import type { ManifestOptions, VitePWAOptions } from 'vite-plugin-pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 import replace from '@rollup/plugin-replace'
@@ -38,26 +36,20 @@ const pwaOptions: Partial<VitePWAOptions> = {
         purpose: 'any maskable',
       },
     ],
-  },
-  devOptions: {
-    enabled: process.env.SW_DEV === 'true',
-    /* when using generateSW the PWA plugin will switch to classic */
-    type: 'module',
-    navigateFallback: 'index.html',
-  },
+  }
 }
 
 const replaceOptions = { __DATE__: new Date().toISOString() }
-const claims = process.env.CLAIMS === 'true'
-const reload = process.env.RELOAD_SW === 'true'
-const selfDestroying = process.env.SW_DESTROY === 'true'
+const claims = false
+const reload = false
+const selfDestroying = false
 
 if (process.env.SW === 'true') {
   pwaOptions.srcDir = 'src'
   pwaOptions.filename = claims ? 'claims-sw.ts' : 'prompt-sw.ts'
   pwaOptions.strategies = 'injectManifest'
-  ;(pwaOptions.manifest as Partial<ManifestOptions>).name = 'PWA Inject Manifest'
-  ;(pwaOptions.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
+    ; (pwaOptions.manifest as Partial<ManifestOptions>).name = 'PWA Inject Manifest'
+    ; (pwaOptions.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
 }
 
 if (claims)
@@ -76,7 +68,7 @@ export default defineConfig({
   build: {
     sourcemap: process.env.SOURCE_MAP === 'true',
   },
-  plugins: [vue(), vueJsx(),VitePWA(pwaOptions),replace(replaceOptions)],
+  plugins: [vue(), vueJsx(), VitePWA(pwaOptions), replace(replaceOptions)],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
