@@ -18,6 +18,8 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+
+  __DATE__
 </template>
 
 <style scoped>
