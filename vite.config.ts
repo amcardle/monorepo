@@ -15,10 +15,10 @@ const pwaOptions: Partial<VitePWAOptions> = {
   base: '/',
   includeAssets: ['favicon.svg'],
   injectManifest: {
-    globPatterns: ['**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+    globPatterns: ['**/*.*']
   },
   workbox: {
-    globPatterns: ['**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+    globPatterns: ['**/*.*}']
   },
   manifest: {
     name: 'PWA Router',
@@ -46,28 +46,6 @@ const pwaOptions: Partial<VitePWAOptions> = {
 }
 
 const replaceOptions = { __DATE__: new Date().toISOString() }
-const claims = false
-const reload = false
-const selfDestroying = false
-
-if (process.env.SW === 'true') {
-  pwaOptions.srcDir = 'src'
-  pwaOptions.filename = claims ? 'claims-sw.ts' : 'prompt-sw.ts'
-  pwaOptions.strategies = 'injectManifest'
-    ; (pwaOptions.manifest as Partial<ManifestOptions>).name = 'PWA Inject Manifest'
-    ; (pwaOptions.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
-}
-
-if (claims)
-  pwaOptions.registerType = 'autoUpdate'
-
-if (reload) {
-  // @ts-expect-error overrides
-  replaceOptions.__RELOAD_SW__ = 'true'
-}
-
-if (selfDestroying)
-  pwaOptions.selfDestroying = selfDestroying
 
 // https://vitejs.dev/config/
 export default defineConfig({
