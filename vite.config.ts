@@ -21,8 +21,8 @@ const pwaOptions: Partial<VitePWAOptions> = {
     globPatterns: ['**/*.*}']
   },
   manifest: {
-    name: 'PWA Router',
-    short_name: 'PWA Router',
+    name: 'create-vue',
+    short_name: 'create-vue',
     theme_color: '#ffffff',
     icons: [
       {
@@ -49,9 +49,6 @@ const replaceOptions = { __DATE__: new Date().toString() }
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    sourcemap: process.env.SOURCE_MAP === 'true',
-  },
   plugins: [vue(), vueJsx(), VitePWA(pwaOptions), replace(replaceOptions)],
   resolve: {
     alias: {
