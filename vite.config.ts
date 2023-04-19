@@ -14,6 +14,12 @@ const pwaOptions: Partial<VitePWAOptions> = {
   mode: 'development',
   base: '/',
   includeAssets: ['favicon.svg'],
+  injectManifest: {
+    globPatterns: ['**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+  },
+  workbox: {
+    globPatterns: ['**/*.{js,css,ico,png,svg,webp,woff,woff2}']
+  },
   manifest: {
     name: 'PWA Router',
     short_name: 'PWA Router',
