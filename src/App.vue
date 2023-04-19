@@ -9,7 +9,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      __DATE__
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -19,6 +18,8 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+
+  __DATE__
 </template>
 
 <style scoped>

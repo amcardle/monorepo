@@ -45,7 +45,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   }
 }
 
-const replaceOptions = { __DATE__: new Date().toISOString() }
+const replaceOptions = { __DATE__: new Date().toString() }
 
 // https://vitejs.dev/config/
 export default defineConfig({
